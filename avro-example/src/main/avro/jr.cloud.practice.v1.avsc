@@ -1,0 +1,51 @@
+{
+  "name": "PurchaseEventsAvro",
+  "namespace": "jr.cloud.practice",
+  "type": "record",
+  "fields": [
+    {
+      "name": "eventType",
+      "type": {
+        "type": "enum",
+        "name": "PurchaseEventType",
+        "symbols" : [
+          "PURCHASE_SUBMITTED",
+          "PURCHASE_RESERVED",
+          "PURCHASE_PAID"]
+      }
+    },
+    {
+      "name": "purchaseDetails",
+      "type": {
+        "name": "PurchaseDetailsAvro",
+        "type": "record",
+        "fields": [
+          {
+            "name": "purchaseId",
+            "type": "long"
+          },
+          {
+            "name": "purchaseItems",
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "record",
+                "name": "PurchaseItem",
+                "fields": [
+                  {
+                    "name": "itemId",
+                    "type": "long"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "int"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

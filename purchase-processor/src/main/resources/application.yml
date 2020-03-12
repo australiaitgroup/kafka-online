@@ -1,0 +1,19 @@
+server:
+  port: 9999
+
+spring:
+  kafka:
+    template:
+      default-topic: jr.cloud.practice.v1
+    bootstrap-servers: localhost:9092
+    properties:
+      schema:
+        registry:
+          url: http://localhost:8081
+      auto:
+        register:
+          schemas: false
+    producer:
+      retries: 3
+      key-serializer: org.apache.kafka.common.serialization.LongSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
