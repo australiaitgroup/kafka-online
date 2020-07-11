@@ -12,4 +12,4 @@ This is the code repo for online session about Kafka
 
 Then kafka environment can run and also create a topic with avro schema.
 
-Go to http://localhost:9021/ to check topic's details.
+Go to http://localhost:9021/ (this is to open control center) to check topic's details.
